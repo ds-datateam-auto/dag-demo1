@@ -2,6 +2,13 @@ from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from datetime import datetime, timedelta
 
+# Testing that these imports work
+import MySQLdb
+import pyodbc
+import xgboost
+import lightgbm
+import tensorflow
+
 default_args = {
 	'owner': 'airflow',
 	'depends_on_past': False,

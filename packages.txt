@@ -1,0 +1,11 @@
+alpine-sdk
+g++
+gcc
+gfortran
+lapack-dev 
+libexecinfo-dev 
+libstdc++ 
+openblas
+py-setuptools
+python3-dev
+unixodbc-dev

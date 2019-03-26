@@ -1,0 +1,6 @@
+##lightgbm==2.2.3 <-- Installed in the Dockerfile, needs natively compiled code
+pyodbc==4.0.22
+mysqlclient==1.4.2.post1
+setuptools==36.6.0
+##tensorflow <-- Installed in the Dockerfile, needs dependcies which are not installed properly via pip
+##xgboost==0.7.post4 <-- Installed in the Dockerfile, needs natively compiled code
