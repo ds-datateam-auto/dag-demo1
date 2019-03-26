@@ -59,10 +59,3 @@ RUN set -x && \
 
 RUN set -x && \
     pip3 install https://github.com/better/alpine-tensorflow/releases/download/alpine3.7-tensorflow1.7.0/tensorflow-1.7.0-cp36-cp36m-linux_x86_64.whl
-    #echo "" && \
-    #echo "***** Installing Tables and H5py which are needed by Tensorflow *****" && \
-    #apk add --no-cache --allow-untrusted --repository http://dl-3.alpinelinux.org/alpine/edge/testing hdf5 hdf5-dev && \
-    #apk add --no-cache build-base && \
-    #pip install --no-cache-dir --no-binary :all: tables h5py && \
-    #apk --no-cache del build-base && \
-    #pip3 install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.13.1-py3-none-any.whl
