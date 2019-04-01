@@ -1,6 +1,6 @@
-##lightgbm==2.2.3 <-- Installed in the Dockerfile, needs natively compiled code
+wheel
+pip
 pyodbc==4.0.22
-mysqlclient==1.4.2.post1
+mysqlclient
 setuptools==36.6.0
-##tensorflow <-- Installed in the Dockerfile, needs dependcies which are not installed properly via pip
-##xgboost==0.7.post4 <-- Installed in the Dockerfile, needs natively compiled code
+https://github.com/better/alpine-tensorflow/releases/download/alpine3.7-tensorflow1.7.0/tensorflow-1.7.0-cp36-cp36m-linux_x86_64.whl

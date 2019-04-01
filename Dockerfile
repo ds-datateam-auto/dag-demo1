@@ -1,4 +1,4 @@
-FROM astronomerinc/ap-airflow:0.8.2-1.10.2-onbuild
+FROM astronomerinc/ap-airflow:0.7.5-1.10.1-onbuild
 
 #########################################################
 # Building native dependencies for LightGBM module
@@ -43,19 +43,9 @@ RUN set -x && \
     sed -i '/#define DMLC_LOG_STACK_TRACE 1/d' /src/xgboost/rabit/include/dmlc/base.h && \
     cd /src/xgboost/ && \
     ./build.sh && \
-    #ln -s locale.h /usr/include/xlocale.h && \
-    #cd /src/xgboost; make -j4 && \
     cd /src/xgboost/python-package && \
     python3 setup.py install && \
     rm /usr/include/xlocale.h && \
     rm -r /root/.cache && \
     rm -rf /src && \
     apk del .build-dependencies
-
-
-#########################################################
-# Installing Tables and H5py which are needed by Tensorflow
-#########################################################
-
-RUN set -x && \
-    pip3 install https://github.com/better/alpine-tensorflow/releases/download/alpine3.7-tensorflow1.7.0/tensorflow-1.7.0-cp36-cp36m-linux_x86_64.whl

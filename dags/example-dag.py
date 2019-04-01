@@ -33,8 +33,8 @@ default_args = {
 }
 
 dag = DAG('example_dag',
-			max_active_runs=3,
-			schedule_interval=timedelta(minutes=5),
+			max_active_runs=1,
+			schedule_interval=timedelta(minutes=30),
 			default_args=default_args,
 			catchup=False)
 
@@ -54,21 +54,22 @@ t_test_mysql = PythonOperator(
 )
 
 def test_pyodbc(*args, **kwargs):
-	conn_str = (
-    #"DRIVER={PostgreSQL Unicode};"
-    #"DATABASE=postgres;"
-    #"UID=postgres;"
-    #"PWD=postgres;"
-    #"SERVER=postgres;"
-    #"PORT=5432;"
-    "DSN=my-connector"
-    )
-	cnxn = pyodbc.connect(conn_str)
-	crsr = conn.execute("SELECT * FROM pg_catalog.pg_tables")
-	row = crsr.fetchone()
-	log.info(row)
-	crsr.close()
-	conn.close()
+	# conn_str = (
+ #    #"DRIVER={PostgreSQL Unicode};"
+ #    #"DATABASE=postgres;"
+ #    #"UID=postgres;"
+ #    #"PWD=postgres;"
+ #    #"SERVER=postgres;"
+ #    #"PORT=5432;"
+ #    "DSN=my-connector"
+ #    )
+	# cnxn = pyodbc.connect(conn_str)
+	# crsr = conn.execute("SELECT * FROM pg_catalog.pg_tables")
+	# row = crsr.fetchone()
+	# log.info(row)
+	# crsr.close()
+	# conn.close()
+	log.info("Missing postgres driver - mess with this later...")
 
 t_test_pyodbc = PythonOperator(
     dag=dag,
@@ -193,6 +194,7 @@ t_test_tensorflow = PythonOperator(
 )
 
 t_test_pyodbc.set_upstream(t_test_mysql)
-t_test_mysql.set_upstream(t_test_tensorflow)
-t_test_tensorflow.set_upstream(t_test_xgboost)
+t_test_mysql.set_upstream(t_test_xgboost)
 t_test_xgboost.set_upstream(t_test_lightgbm)
+t_test_lightgbm.set_upstream(t_test_tensorflow)
+
