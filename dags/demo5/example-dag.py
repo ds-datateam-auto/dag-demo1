@@ -111,8 +111,8 @@ t_test_xgboost = PythonOperator(
 def test_lightgbm(*args, **kwargs):
 	log.info('Loading data...')
 	# load or create your dataset
-	df_train = pd.read_csv(os.environ['AIRFLOW_HOME'] + '/dags/regression.train', header=None, sep='\t')
-	df_test = pd.read_csv(os.environ['AIRFLOW_HOME'] + '/dags/regression.test', header=None, sep='\t')
+	df_train = pd.read_csv(os.environ['AIRFLOW_HOME'] + '/dags/demo5/regression.train', header=None, sep='\t')
+	df_test = pd.read_csv(os.environ['AIRFLOW_HOME'] + '/dags/demo5/regression.test', header=None, sep='\t')
 
 	y_train = df_train[0]
 	y_test = df_test[0]
