@@ -34,7 +34,7 @@ default_args = {
 
 dag = DAG('example_dag_01',
 			max_active_runs=1,
-			schedule_interval=timedelta(minutes=30),
+			schedule_interval=timedelta(minutes=5),
 			default_args=default_args,
 			catchup=False)
 
