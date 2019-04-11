@@ -21,7 +21,7 @@ from sklearn import datasets
 from sklearn.cross_validation import train_test_split
 from sklearn.datasets import dump_svmlight_file
 
-log = logging.getLogger("example_dag")
+log = logging.getLogger("example_dag_05")
 
 default_args = {
 	'owner': 'airflow',
@@ -32,7 +32,7 @@ default_args = {
 	'retries': 0
 }
 
-dag = DAG('example_dag',
+dag = DAG('example_dag_05',
 			max_active_runs=1,
 			schedule_interval=timedelta(minutes=30),
 			default_args=default_args,
