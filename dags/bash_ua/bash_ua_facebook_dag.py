@@ -136,7 +136,7 @@ default_args = {
 dag = DAG(
     dag_id='bash_ua_facebook',
     default_args=default_args,
-    schedule_interval='25 4 * * *',  # every 6 hours
+    schedule_interval=timedelta(minutes=10),
     catchup=False,
 )
 
